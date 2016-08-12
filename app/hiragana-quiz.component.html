@@ -1,0 +1,22 @@
+<div id="info">
+    <counter [count]="correctAnswersCount"
+             [text]="'correct'"
+    ></counter>
+    <counter [count]="cardsLeftCount"
+             [text]="'to go'"
+    ></counter>
+    <counter [count]="wrongAnswersCount"
+             [text]="'wrong'"
+    ></counter>
+</div>
+
+<template ngFor let-card [ngForOf]="tempArray" let-i="index">
+    <card (correctAnswer)="correctAnswer()"
+          (wrongAnswer)="wrongAnswer($event)"
+          *ngIf="i === currentCardNumber"
+    ></card>
+</template>
+
+<restart-button *ngIf="isGameOver"
+                (invokeRestart)="startGame()"
+></restart-button>

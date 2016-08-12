@@ -1,0 +1,74 @@
+@import "../../../node_modules/material-colors/dist/colors.scss";
+@import "../../../node_modules/material-shadows/material-shadows.scss";
+
+:host {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: $md-blue-grey-50;
+  width: 400px;
+  height: 400px;
+  border-radius: 5px;
+  @include z-depth(24);
+}
+
+.question {
+  font-family: "Noto Sans CJK JP Medium", Noto, Roboto, sans-serif;
+  font-size: 200px;
+  line-height: 260px;
+  height: 260px;
+  text-align: center;
+  color: $md-blue-grey-600;
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  li {
+    $size: 80px;
+    width: $size;
+    height: $size;
+    line-height: $size;
+    font-size: $size * .66;
+    text-align: center;
+    border-radius: 50%;
+    font-family: "Noto Sans CJK JP Black", Noto, Arial, sans-serif;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      color: $md-blue-grey-200;
+      $size: 14px;
+      height: $size;
+      line-height: $size;
+      font-size: $size;
+      font-family: Roboto, "Nano Sans CJK JP Regular", Nano, Arial, sans-serif;
+      left: 0;
+      right: 0;
+      bottom: -$size;
+    }
+
+    $colors: (
+            1: $md-red-500,
+            2: $md-green-500,
+            3: $md-blue-500,
+            4: $md-orange-500
+    );
+
+    @each $n, $color in $colors {
+      &:nth-child(#{$n}) {
+        color: $color;
+
+        &::after {
+          content: "#{$n}";
+        }
+      }
+    }
+  }
+}

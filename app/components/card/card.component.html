@@ -1,0 +1,8 @@
+<template [ngIf]="card">
+    <div class="question">
+        {{card.question}}
+    </div>
+    <ol>
+        <li *ngFor="let choice of card.choices">{{choice}}</li>
+    </ol>
+</template>

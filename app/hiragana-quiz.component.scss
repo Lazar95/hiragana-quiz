@@ -1,0 +1,21 @@
+@import "../node_modules/material-colors/dist/colors.scss";
+@import "../node_modules/material-shadows/material-shadows.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: $md-blue-grey-900;
+}
+
+#info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
